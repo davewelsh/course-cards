@@ -5,15 +5,15 @@ import { asyncWrapper } from '../lib/asyncWrapper';
 import { courseCard } from '../courseCard';
 
 type CourseCardRequest = {
+  courseCode: string;
   countryCode: string;
   provinceCode?: string;
-  courseCode: string;
-}
+};
 
-const courseRequestSchema = yup.object<CourseCardRequest>({
-  countryCode: yup.string().required(),
-  provinceCode: yup.string().length(2),
+const courseRequestSchema: yup.SchemaOf<CourseCardRequest> = yup.object({
   courseCode: yup.string().length(2).required(),
+  countryCode: yup.string().length(2).required(),
+  provinceCode: yup.string().min(1).max(3),
 }).required();
 
 export const coursesHandler = asyncWrapper(async (req, res) => {
