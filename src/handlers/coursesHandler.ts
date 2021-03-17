@@ -1,8 +1,8 @@
 import * as HttpStatus from '@qccareerschool/http-status';
 import * as yup from 'yup';
-import { courseCard } from '../courseCard';
 
 import { asyncWrapper } from '../lib/asyncWrapper';
+import { courseCard } from '../courseCard';
 
 type CourseCardRequest = {
   countryCode: string;

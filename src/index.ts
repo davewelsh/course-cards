@@ -1,6 +1,6 @@
 import compression from 'compression';
 import cors from 'cors';
-import dotenv from 'dotenv'
+import dotenv from 'dotenv';
 import express from 'express';
 import helmet from 'helmet';
 
@@ -28,7 +28,7 @@ const app = express();
 app.use(cors({ origin }));
 app.use(helmet());
 app.use(compression());
-app.use('/courses', coursesHandler);
+app.use('/courseCards', coursesHandler);
 app.use(httpErrorHandler);
 app.use(errorHandler);
 
